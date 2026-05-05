@@ -1,0 +1,11 @@
+# https://www.robotstxt.org/robotstxt.html
+
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Host directive helps engines identify the primary domain
+Host: https://dskyle77.vercel.app/
+
+# Point to your sitemap to ensure all projects are indexed
+Sitemap: https://dskyle77.vercel.app/sitemap.xml
