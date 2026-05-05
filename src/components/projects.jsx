@@ -253,14 +253,14 @@ const Projects = () => {
     {
       name: "Legalbabydistribution",
       desc: `A next-generation distribution and artist services platform built for independent creators—no upfront costs to release, just your music reaching the world.`,
-      image: `https://image-source-gxu.vercel.app/images/project%20Images/legalbaby.png`,
+      image: `https://image-source-sk.vercel.app/images/project%20Images/legalbaby.png`,
       url: "https://legalbabydistribution.com/",
       techStack: ["Nextjs", "TailwindCSS", "Shadcn"],
     },
     {
       name: "Blog Dashboard",
       desc: `A modern, responsive blog dashboard for creating, editing, and managing posts with a clean, user-friendly interface.`,
-      image: "https://image-source-gxu.vercel.app/images/blog-dashboard.png",
+      image: "https://image-source-sk.vercel.app/images/blog-dashboard.png",
       url: "https://blog-site-gxu.vercel.app/",
       techStack: ["React", "Tailwind CSS", "Zustand"],
     },
@@ -268,7 +268,7 @@ const Projects = () => {
       name: "Hulu",
       desc: `Redesign of an existing website with very responsive design.`,
       image:
-        "https://image-source-gxu.vercel.app/images/project%20Images/hulu.png",
+        "https://image-source-sk.vercel.app/images/project%20Images/hulu.png",
       url: "https://david-hulu-com.vercel.app",
       techStack: ["HTML", "CSS", "JavaScript"],
     },
@@ -276,7 +276,7 @@ const Projects = () => {
       name: "GadgetZone",
       desc: `An e-commerce website for buying and selling gadgets, featuring a sleek design, product listings, and a shopping cart.`,
       image:
-        "https://image-source-gxu.vercel.app/images/project%20Images/gadgetszone.png",
+        "https://image-source-sk.vercel.app/images/project%20Images/gadgetszone.png",
       url: "https://gadgets-zone-three.vercel.app/",
       techStack: ["Nextjs", "TailwindCSS", "Shadcn"],
     },
@@ -284,14 +284,14 @@ const Projects = () => {
       name: "To Do List",
       desc: `A simple task management app that helps users stay organized by adding, editing, and tracking tasks through a clean, responsive interface.`,
       image:
-        "https://image-source-gxu.vercel.app/images/project%20Images/todolist.png",
+        "https://image-source-sk.vercel.app/images/project%20Images/todolist.png",
       url: "https://to-do-list-gxu.vercel.app/",
       techStack: ["HTML", "CSS", "JavaScript"],
     },
     {
       name: "Blog Dashboard V2",
       desc: "A modern, dark-mode blog dashboard with real-time WebSocket sync, live previews, and smooth animations. Built with React, Zustand, and Tailwind CSS.",
-      image: "https://image-source-gxu.vercel.app/images/bd2.png",
+      image: "https://image-source-sk.vercel.app/images/bd2.png",
       url: "https://blogsitegxu.vercel.app/",
       techStack: ["JavaScript", "React", "Tailwind CSS", "Zustand"],
     },
@@ -299,7 +299,7 @@ const Projects = () => {
       name: "Max Games Maker",
       desc: `An Android app for building and publishing mini games easily. It lets users customise templates and test their projects online.`,
       image:
-        "https://image-source-gxu.vercel.app/images/project%20Images/max-games.png",
+        "https://image-source-sk.vercel.app/images/project%20Images/max-games.png",
       url: "https://max-games-maker-site.vercel.app",
       techStack: ["React", "Material UI", "JavaScript"],
     },
@@ -307,7 +307,7 @@ const Projects = () => {
       name: "MINI Projects",
       desc: `A set of creative mini web pages and components built with pure HTML and CSS, showing responsive layouts and simple animations.`,
       image:
-        "https://image-source-gxu.vercel.app/images/project%20Images/html-css.png",
+        "https://image-source-sk.vercel.app/images/project%20Images/html-css.png",
       url: "https://html-css-projects-brown.vercel.app/",
       techStack: ["HTML", "CSS", "JavaScript"],
     },
