@@ -50,7 +50,8 @@ const HeroSection = () => {
           left: "-50%",
           width: "200%",
           height: "200%",
-          background: "radial-gradient(circle, rgba(0, 245, 255, 0.03) 1px, transparent 1px)",
+          background:
+            "radial-gradient(circle, rgba(0, 245, 255, 0.03) 1px, transparent 1px)",
           backgroundSize: "50px 50px",
           animation: `${pulse} 4s ease-in-out infinite`,
         },
@@ -86,7 +87,8 @@ const HeroSection = () => {
               alignSelf: "flex-start",
               px: 3,
               py: 1,
-              background: "linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(0, 150, 255, 0.1) 100%)",
+              background:
+                "linear-gradient(135deg, rgba(0, 245, 255, 0.1) 0%, rgba(0, 150, 255, 0.1) 100%)",
               border: "1px solid rgba(0, 245, 255, 0.3)",
               borderRadius: "50px",
               backdropFilter: "blur(10px)",
@@ -110,7 +112,8 @@ const HeroSection = () => {
               fontSize: { xs: "2.5rem", sm: "3rem", md: "4rem" },
               fontWeight: 800,
               lineHeight: 1.2,
-              background: "linear-gradient(135deg, #ffffff 0%, #00f5ff 50%, #0096ff 100%)",
+              background:
+                "linear-gradient(135deg, #ffffff 0%, #00f5ff 50%, #0096ff 100%)",
               WebkitBackgroundClip: "text",
               WebkitTextFillColor: "transparent",
               textShadow: "0 0 40px rgba(0, 245, 255, 0.3)",
@@ -150,10 +153,16 @@ const HeroSection = () => {
               paddingLeft: 2,
             }}
           >
-            Crafting pixel-perfect, high-performance web experiences with modern
-            technologies. Specializing in building scalable applications with
-            React, TypeScript, and cutting-edge tools. Let's transform your
-            vision into reality with clean code and exceptional UX.
+            I'm David Onyema — a self-taught full-stack developer based in
+            Lagos, Nigeria. I didn't learn to code in a classroom. I figured it
+            out through broken builds, late nights, and shipping real projects
+            for real clients. Three-plus years in, and I'm just getting started.
+            I build fast, functional, and scalable web applications using
+            Next.js, Tailwind CSS, Typescript, and Nodejs. Being part of
+            Lagos's growing tech scene — home to some of Africa's most exciting
+            startups — has shaped how I think about building products that are
+            practical, performant, and built to scale. I'm not just writing
+            code. I'm building things that matter.
           </Typography>
 
           {/* CTA Buttons */}
@@ -182,7 +191,8 @@ const HeroSection = () => {
                   left: "-100%",
                   width: "100%",
                   height: "100%",
-                  background: "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)",
+                  background:
+                    "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent)",
                   transition: "left 0.5s",
                 },
                 "&:hover": {
@@ -242,7 +252,8 @@ const HeroSection = () => {
               right: "-10%",
               width: 200,
               height: 200,
-              background: "radial-gradient(circle, rgba(0, 245, 255, 0.2) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(0, 245, 255, 0.2) 0%, transparent 70%)",
               borderRadius: "50%",
               filter: "blur(40px)",
               animation: `${float} 6s ease-in-out infinite`,
@@ -255,7 +266,8 @@ const HeroSection = () => {
               left: "-10%",
               width: 250,
               height: 250,
-              background: "radial-gradient(circle, rgba(0, 150, 255, 0.2) 0%, transparent 70%)",
+              background:
+                "radial-gradient(circle, rgba(0, 150, 255, 0.2) 0%, transparent 70%)",
               borderRadius: "50%",
               filter: "blur(40px)",
               animation: `${float} 8s ease-in-out infinite`,
@@ -276,7 +288,8 @@ const HeroSection = () => {
               sx={{
                 position: "absolute",
                 inset: -20,
-                background: "linear-gradient(135deg, rgba(0, 245, 255, 0.3), rgba(0, 150, 255, 0.3))",
+                background:
+                  "linear-gradient(135deg, rgba(0, 245, 255, 0.3), rgba(0, 150, 255, 0.3))",
                 borderRadius: 4,
                 filter: "blur(30px)",
                 opacity: 0.6,
