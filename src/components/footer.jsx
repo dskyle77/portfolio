@@ -45,7 +45,7 @@ const Footer = () => (
       {/* Social Links */}
       <Stack direction="row" spacing={2}>
         <IconButton
-          href="#"
+          href="https://www.facebook.com/dskyle7/"
           target="_blank"
           sx={{
             color: "rgba(255, 255, 255, 0.6)",
@@ -62,7 +62,7 @@ const Footer = () => (
           <FaceBookIcon />
         </IconButton>
         <IconButton
-          href="#"
+          href="https://www.linkedin.com/in/david-onyema-1abb77378/"
           target="_blank"
           sx={{
             color: "rgba(255, 255, 255, 0.6)",
