@@ -3,6 +3,7 @@ import { GlobalStyles } from "@mui/material";
 import { useState } from "react";
 
 import Header from "./components/header";
+import About from "./components/AboutSection"
 import HeroSection from "./components/heroSection";
 import SideMenu from "./components/sideMenu";
 import Projects from "./components/projects";
@@ -12,18 +13,7 @@ import Footer from "./components/footer";
 
 import darkTechTheme from "./theme";
 
-import HtmlLogo from "./assets/html-logo.png";
-import CssLogo from "./assets/css-logo.png";
-import TailwindLogo from "./assets/tc.png";
-import UnityLogo from "./assets/unity-logo.png";
-import JsLogo from "./assets/js-logo.png";
-import TsLogo from "./assets/ts-logo.png";
-import ReactLogo from "./assets/react-logo.png";
-import GdevelopLogo from "./assets/gdevelop-logo.png";
-import GodotLogo from "./assets/godot-logo.png";
 
-import NodeJsLogo from "./assets/node-js-logo.png";
-import GitLogo from "./assets/git-logo.png";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -41,23 +31,6 @@ function App() {
   const handleCloseAlert = () => {
     setAlert((prev) => ({ ...prev, open: false }));
   };
-
-  const skills = [
-    { name: "HTML", image: HtmlLogo },
-    { name: "CSS", image: CssLogo },
-    { name: "Tailwind CSS", image: TailwindLogo },
-
-    { name: "JavaScript", image: JsLogo },
-    { name: "TypeScript", image: TsLogo },
-    { name: "React", image: ReactLogo },
-
-    { name: "Node.js", image: NodeJsLogo },
-    { name: "Git", image: GitLogo },
-
-    { name: "Gdevelop", image: GdevelopLogo },
-    { name: "Godot", image: GodotLogo },
-    { name: "Unity", image: UnityLogo },
-  ];
 
   const handleSubmitContact = async (e) => {
     e.preventDefault();
@@ -106,9 +79,10 @@ function App() {
 
       <Header openMenu={openMenu} />
       <HeroSection />
+      <About />
       <SideMenu close={closeMenu} open={menuOpen} />
 
-      <Skills skills={skills} />
+      <Skills />
       <Projects />
       <Contact submitForm={handleSubmitContact} />
       <Footer />

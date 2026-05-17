@@ -1,262 +1,235 @@
-import { Stack, Box, Typography, Grid } from "@mui/material";
+import { Stack, Box, Typography, Grid, Divider } from "@mui/material";
 import { keyframes } from "@mui/system";
 
-const float = keyframes`
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-`;
+import HtmlLogo from "../assets/html-logo.png";
+import CssLogo from "../assets/css-logo.png";
+import TailwindLogo from "../assets/tc.png";
+import UnityLogo from "../assets/unity-logo.png";
+import JsLogo from "../assets/js-logo.png";
+import TsLogo from "../assets/ts-logo.png";
+import ReactLogo from "../assets/react-logo.png";
+import GdevelopLogo from "../assets/gdevelop-logo.png";
+import GodotLogo from "../assets/godot-logo.png";
 
-// const glow = keyframes`
-//   0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.3); }
-//   50% { box-shadow: 0 0 40px rgba(0, 245, 255, 0.6); }
-// `;
+import NodeJsLogo from "../assets/node-js-logo.png";
+import GitLogo from "../assets/git-logo.png";
 
-const Skills = ({ skills }) => {
+// Keyframe for the loading fill animation
+const fillTrack = keyframes`
+    from { width: 0%; }
+    to { width: var(--progress-width); }
+  `;
+
+const webSkills = [
+  { name: "HTML", image: HtmlLogo, level: 95 },
+  { name: "CSS", image: CssLogo, level: 90 },
+  { name: "Tailwind CSS", image: TailwindLogo, level: 95 },
+  { name: "JavaScript", image: JsLogo, level: 92 },
+  { name: "TypeScript", image: TsLogo, level: 85 },
+  { name: "React", image: ReactLogo, level: 90 },
+  { name: "Node.js", image: NodeJsLogo, level: 75 },
+  { name: "Git", image: GitLogo, level: 75 },
+];
+
+const gameSkills = [
+  { name: "Gdevelop", image: GdevelopLogo, level: 90 },
+  { name: "Godot", image: GodotLogo, level: 70 },
+  { name: "Unity", image: UnityLogo, level: 65 },
+];
+
+function SkillGrid({ skills }) {
   return (
-    <Stack
-      sx={{
-        minHeight: "100vh",
-        bgcolor: "transparent",
-        py: { xs: 8, md: 12 },
-        px: { xs: 2, md: 6 },
-        position: "relative",
-        "&::before": {
-          content: '""',
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          background: "radial-gradient(circle at 20% 50%, rgba(0, 245, 255, 0.05) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(0, 150, 255, 0.05) 0%, transparent 50%)",
-          pointerEvents: "none",
-        },
-      }}
-    >
-      <Box
-        sx={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          textAlign: "center",
-          position: "relative",
-        }}
-      >
-        {/* Section Header */}
-        <Box sx={{ mb: 8 }}>
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: 800,
-              fontSize: { xs: "2.5rem", md: "3.5rem" },
-              mb: 2,
-              background: "linear-gradient(135deg, #ffffff 0%, #00f5ff 50%, #0096ff 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-            }}
-          >
-            Tech Stack
-          </Typography>
+    <Grid container spacing={{ xs: 3, md: 4 }}>
+      {skills.map((skill) => (
+        <Grid item xs={12} sm={6} key={skill.name}>
           <Box
             sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: 2,
+              p: 2,
+              borderRadius: "12px",
+              transition: "background 0.3s ease",
+              "&:hover": {
+                background: "rgba(255, 255, 255, 0.02)",
+                "& .skill-icon": {
+                  filter: "brightness(1) drop-shadow(0 0 8px #00f5ff)",
+                },
+              },
             }}
           >
-            <Box
-              sx={{
-                width: 60,
-                height: 2,
-                background: "linear-gradient(90deg, transparent, #00f5ff)",
-              }}
-            />
-            <Typography
-              variant="h6"
-              sx={{
-                color: "rgba(255, 255, 255, 0.6)",
-                fontFamily: "monospace",
-              }}
+            {/* Info Row: Icon, Label, and Percentage */}
+            <Stack
+              direction="row"
+              justifyContent="space-between"
+              alignItems="center"
+              sx={{ mb: 1.5 }}
             >
-              Technologies I work with
-            </Typography>
+              <Stack direction="row" alignItems="center" spacing={2}>
+                <Box
+                  className="skill-icon"
+                  component="img"
+                  src={skill.image}
+                  alt={skill.name}
+                  sx={{
+                    width: 26,
+                    height: 26,
+                    objectFit: "contain",
+                    filter: "brightness(0.7)",
+                    transition: "filter 0.3s ease",
+                  }}
+                />
+                <Typography
+                  variant="body1"
+                  sx={{
+                    color: "#fff",
+                    fontWeight: 600,
+                    fontSize: "1.05rem",
+                  }}
+                >
+                  {skill.name}
+                </Typography>
+              </Stack>
+
+              <Typography
+                variant="body2"
+                sx={{
+                  color: "#00f5ff",
+                  fontFamily: "monospace",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                }}
+              >
+                {skill.level || 0}%
+              </Typography>
+            </Stack>
+
+            {/* Cyberpunk Progress Track */}
             <Box
               sx={{
-                width: 60,
-                height: 2,
-                background: "linear-gradient(90deg, #00f5ff, transparent)",
-              }}
-            />
-          </Box>
-        </Box>
-
-        {/* Skills Grid */}
-        <Grid
-          container
-          spacing={4}
-          sx={{
-            mt: 2,
-            justifyContent: "center",
-          }}
-        >
-          {skills.map((skill, index) => (
-            <Grid
-              item
-              key={skill.name}
-              sx={{
+                width: "100%",
+                height: "6px",
+                bgcolor: "rgba(255, 255, 255, 0.06)",
+                borderRadius: "4px",
                 position: "relative",
               }}
             >
               <Box
                 sx={{
-                  position: "relative",
-                  bgcolor: "rgba(15, 23, 42, 0.6)",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderRadius: "16px",
-                  p: 4,
-                  width: { md: "200px", xs: "250px" },
-                  height: "240px",
-                  border: "1px solid rgba(0, 245, 255, 0.2)",
-                  backdropFilter: "blur(10px)",
-                  transition: "all 0.3s ease",
-                  animation: `${float} ${3 + index * 0.5}s ease-in-out infinite`,
-                  animationDelay: `${index * 0.2}s`,
-                  "&::before": {
-                    content: '""',
-                    position: "absolute",
-                    inset: 0,
-                    borderRadius: "16px",
-                    padding: "2px",
-                    background: "linear-gradient(135deg, rgba(0, 245, 255, 0.5), rgba(0, 150, 255, 0.5))",
-                    WebkitMask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-                    WebkitMaskComposite: "xor",
-                    maskComposite: "exclude",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                  },
-                  "&:hover": {
-                    transform: "translateY(-10px) scale(1.05)",
-                    borderColor: "rgba(0, 245, 255, 0.8)",
-                    boxShadow: "0 20px 60px rgba(0, 245, 255, 0.4)",
-                    "&::before": {
-                      opacity: 1,
-                    },
-                    "& .skill-glow": {
-                      opacity: 1,
-                    },
-                  },
+                  "--progress-width": `${skill.level || 0}%`,
+                  width: `${skill.level || 0}%`,
+                  height: "100%",
+                  borderRadius: "4px",
+                  background:
+                    "linear-gradient(90deg, #0096ff 0%, #00f5ff 100%)",
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  boxShadow: "0 0 10px rgba(0, 245, 255, 0.5)",
+                  animation: `${fillTrack} 1.2s cubic-bezier(0.1, 1, 0.1, 1) forwards`,
                 }}
-              >
-                {/* Glow effect on hover */}
-                <Box
-                  className="skill-glow"
-                  sx={{
-                    position: "absolute",
-                    inset: -20,
-                    background: "radial-gradient(circle, rgba(0, 245, 255, 0.2) 0%, transparent 70%)",
-                    borderRadius: "50%",
-                    filter: "blur(20px)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                    pointerEvents: "none",
-                  }}
-                />
-
-                {/* Logo Container */}
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: "100%",
-                    display: "flex",
-                    justifyContent: "center",
-                    mb: 2,
-                  }}
-                >
-                  <Box
-                    component="img"
-                    height={100}
-                    src={skill.image}
-                    alt={skill.name}
-                    sx={{
-                      filter: "drop-shadow(0 4px 20px rgba(0, 245, 255, 0.3))",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        filter: "drop-shadow(0 8px 30px rgba(0, 245, 255, 0.6))",
-                      },
-                    }}
-                  />
-                </Box>
-
-                {/* Skill Name */}
-                <Typography
-                  variant="h5"
-                  sx={{
-                    color: "#fff",
-                    fontWeight: 700,
-                    mt: 2,
-                    mb: 1,
-                    transition: "all 0.3s ease",
-                    "&:hover": {
-                      color: "#00f5ff",
-                    },
-                  }}
-                >
-                  {skill.name}
-                </Typography>
-
-                {/* Decorative line */}
-                <Box
-                  sx={{
-                    width: 0,
-                    height: "2px",
-                    background: "linear-gradient(90deg, #00f5ff, #0096ff)",
-                    transition: "width 0.3s ease",
-                    mt: 1,
-                    ".MuiGrid-item:hover &": {
-                      width: "60%",
-                    },
-                  }}
-                />
-
-                {/* Corner accents */}
-                <Box
-                  sx={{
-                    position: "absolute",
-                    top: 8,
-                    left: 8,
-                    width: 20,
-                    height: 20,
-                    borderTop: "2px solid rgba(0, 245, 255, 0.5)",
-                    borderLeft: "2px solid rgba(0, 245, 255, 0.5)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                    ".MuiGrid-item:hover &": {
-                      opacity: 1,
-                    },
-                  }}
-                />
-                <Box
-                  sx={{
-                    position: "absolute",
-                    bottom: 8,
-                    right: 8,
-                    width: 20,
-                    height: 20,
-                    borderBottom: "2px solid rgba(0, 245, 255, 0.5)",
-                    borderRight: "2px solid rgba(0, 245, 255, 0.5)",
-                    opacity: 0,
-                    transition: "opacity 0.3s ease",
-                    ".MuiGrid-item:hover &": {
-                      opacity: 1,
-                    },
-                  }}
-                />
-              </Box>
-            </Grid>
-          ))}
+              />
+            </Box>
+          </Box>
         </Grid>
+      ))}
+    </Grid>
+  );
+}
+
+const Skills = () => {
+  return (
+    <Stack
+      id="skills"
+      sx={{
+        py: { xs: 8, md: 12 },
+        px: { xs: 2, md: 6 },
+        position: "relative",
+        bgcolor: "transparent",
+      }}
+    >
+      <Box sx={{ maxWidth: "1000px", margin: "0 auto", width: "100%" }}>
+        {/* Section Header */}
+        <Box sx={{ mb: 8, textAlign: "left" }}>
+        <Typography
+            variant="h2"
+            sx={{
+              fontWeight: 900,
+              fontSize: { xs: "2.8rem", sm: "3.5rem", md: "4.3rem" },
+              mb: 2,
+              letterSpacing: "-1.5px",
+              background: "linear-gradient(90deg, #00f5ff 5%, #7f00ff 75%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+              textShadow: "0 3px 18px #00f5ff44",
+              fontFamily: "monospace",
+              textTransform: "uppercase",
+              display: "inline-block",
+              py: 0.5,
+              px: 1,
+              borderRadius: "16px",
+              boxShadow: "0 0 20px 2px #00f5ff24",
+              userSelect: "none"
+            }}
+          >
+            SKILLS
+          </Typography>
+     
+          <Typography
+            variant="body1"
+            sx={{
+              color: "rgba(255, 255, 255, 0.5)",
+              fontFamily: "monospace",
+              fontSize: "1rem",
+            }}
+          >
+            // Tools, technologies & areas where I excel
+       
+          </Typography>
+       
+        </Box>
+
+        {/* Web Technologies */}
+        <Box sx={{ mb: 5 }}>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#00f5ff",
+              fontWeight: 700,
+              mb: 2,
+              letterSpacing: "1.5px",
+              fontSize: { xs: "1.3rem", md: "1.7rem" },
+              fontFamily: "monospace",
+            }}
+          >
+            Web Development Technologies
+          </Typography>
+          <SkillGrid skills={webSkills} />
+        </Box>
+
+        {/* Divider */}
+        <Divider
+          sx={{
+            mb: 5,
+            borderColor: "rgba(0,245,255,0.06)",
+            borderBottomWidth: 2,
+          }}
+        />
+
+        {/* Game Development */}
+        <Box>
+          <Typography
+            variant="h4"
+            sx={{
+              color: "#00f5ff",
+              fontWeight: 700,
+              mb: 2,
+              letterSpacing: "1.5px",
+              fontSize: { xs: "1.3rem", md: "1.7rem" },
+              fontFamily: "monospace",
+            }}
+          >
+            Game Development
+          </Typography>
+          <SkillGrid skills={gameSkills} />
+        </Box>
       </Box>
     </Stack>
   );
