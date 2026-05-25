@@ -12,7 +12,6 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { keyframes } from "@mui/system";
 
-// Glowing animation
 const glow = keyframes`
   0%, 100% {
     text-shadow: 0 0 10px rgba(0, 245, 255, 0.5), 0 0 20px rgba(0, 245, 255, 0.3);
@@ -22,30 +21,41 @@ const glow = keyframes`
   }
 `;
 
+const navLinks = [
+  { label: "About", href: "#about" },
+  { label: "Skills", href: "#skills" },
+  { label: "Projects", href: "#projects" },
+  { label: "Contact", href: "#contact" },
+];
+
 const Header = ({ openMenu }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   return (
     <AppBar
+      component="header"
       position="fixed"
       sx={{
-        background: "linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%)",
+        background:
+          "linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 41, 59, 0.95) 100%)",
         backdropFilter: "blur(10px)",
         borderBottom: "1px solid rgba(0, 245, 255, 0.1)",
         boxShadow: "0 4px 30px rgba(0, 0, 0, 0.3)",
       }}
     >
       <Toolbar sx={{ position: "relative", overflow: "hidden" }}>
-        {/* Animated background gradient */}
+        {/* Animated shimmer */}
         <Box
+          aria-hidden="true"
           sx={{
             position: "absolute",
             top: 0,
             left: "-100%",
             width: "200%",
             height: "100%",
-            background: "linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.05), transparent)",
+            background:
+              "linear-gradient(90deg, transparent, rgba(0, 245, 255, 0.05), transparent)",
             animation: "slide 3s linear infinite",
             "@keyframes slide": {
               "0%": { left: "-100%" },
@@ -54,9 +64,12 @@ const Header = ({ openMenu }) => {
           }}
         />
 
+        {/* Logo / site name */}
         <Typography
           variant="h6"
-          component="div"
+          component="a"
+          href="#home"
+          aria-label="David Onyema — home"
           sx={{
             flexGrow: 1,
             fontWeight: 700,
@@ -67,105 +80,64 @@ const Header = ({ openMenu }) => {
             position: "relative",
             zIndex: 1,
             letterSpacing: "0.5px",
+            textDecoration: "none",
           }}
         >
           &lt;DavidDev /&gt;
         </Typography>
 
-        <Stack
-          spacing={1}
-          direction="row"
-          display={isMobile ? "none" : "flex"}
-          sx={{ position: "relative", zIndex: 1 }}
+        {/* Desktop nav */}
+        <Box
+          component="nav"
+          aria-label="Primary navigation"
+          sx={{
+            display: isMobile ? "none" : "block",
+            position: "relative",
+            zIndex: 1,
+          }}
         >
-          <Button
-            color="inherit"
-            component="a"
-            href="#about"
-            sx={{
-              position: "relative",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                width: 0,
-                height: "2px",
-                background: "linear-gradient(90deg, #00f5ff, #0096ff)",
-                transition: "all 0.3s ease",
-                transform: "translateX(-50%)",
-              },
-              "&:hover": {
-                color: "#00f5ff",
-                "&::before": {
-                  width: "80%",
-                },
-              },
-            }}
-          >
-            About
-          </Button>
-          <Button
-            color="inherit"
-            component="a"
-            href="#projects"
-            sx={{
-              position: "relative",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                width: 0,
-                height: "2px",
-                background: "linear-gradient(90deg, #00f5ff, #0096ff)",
-                transition: "all 0.3s ease",
-                transform: "translateX(-50%)",
-              },
-              "&:hover": {
-                color: "#00f5ff",
-                "&::before": {
-                  width: "80%",
-                },
-              },
-            }}
-          >
-            Projects
-          </Button>
-          <Button
-            color="inherit"
-            component="a"
-            href="#contact"
-            sx={{
-              position: "relative",
-              "&::before": {
-                content: '""',
-                position: "absolute",
-                bottom: 0,
-                left: "50%",
-                width: 0,
-                height: "2px",
-                background: "linear-gradient(90deg, #00f5ff, #0096ff)",
-                transition: "all 0.3s ease",
-                transform: "translateX(-50%)",
-              },
-              "&:hover": {
-                color: "#00f5ff",
-                "&::before": {
-                  width: "80%",
-                },
-              },
-            }}
-          >
-            Contact
-          </Button>
-        </Stack>
+          <Stack spacing={1} direction="row">
+            {navLinks.map(({ label, href }) => (
+              <Button
+                key={label}
+                color="inherit"
+                component="a"
+                href={href}
+                aria-label={`Navigate to ${label} section`}
+                sx={{
+                  position: "relative",
+                  "&::before": {
+                    content: '""',
+                    position: "absolute",
+                    bottom: 0,
+                    left: "50%",
+                    width: 0,
+                    height: "2px",
+                    background: "linear-gradient(90deg, #00f5ff, #0096ff)",
+                    transition: "all 0.3s ease",
+                    transform: "translateX(-50%)",
+                  },
+                  "&:hover": {
+                    color: "#00f5ff",
+                    "&::before": { width: "80%" },
+                  },
+                }}
+              >
+                {label}
+              </Button>
+            ))}
+          </Stack>
+        </Box>
 
+        {/* Mobile hamburger */}
         {isMobile && (
           <IconButton
             color="inherit"
             edge="end"
             onClick={openMenu}
+            aria-label="Open navigation menu"
+            aria-expanded={false}
+            aria-haspopup="true"
             sx={{
               position: "relative",
               zIndex: 1,
