@@ -16,15 +16,14 @@ import darkTechTheme from "./theme";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
-
-  const openMenu = () => setMenuOpen(true);
-  const closeMenu = () => setMenuOpen(false);
-
   const [alert, setAlert] = useState({
     open: false,
     message: "",
     severity: "success",
   });
+
+  const openMenu = () => setMenuOpen(true);
+  const closeMenu = () => setMenuOpen(false);
 
   const handleCloseAlert = () => {
     setAlert((prev) => ({ ...prev, open: false }));
@@ -35,10 +34,8 @@ function App() {
       <GlobalStyles styles={{ html: { scrollBehavior: "smooth" } }} />
       <CssBaseline />
 
-      {/* Landmark: banner */}
       <Header openMenu={openMenu} />
 
-      {/* Landmark: main */}
       <main id="main-content">
         <HeroSection />
         <About />
@@ -47,7 +44,6 @@ function App() {
         <Contact />
       </main>
 
-      {/* Landmark: contentinfo */}
       <Footer />
 
       <SideMenu close={closeMenu} open={menuOpen} />
@@ -57,13 +53,11 @@ function App() {
         open={alert.open}
         autoHideDuration={4000}
         onClose={handleCloseAlert}
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
       >
         <Alert
           onClose={handleCloseAlert}
           severity={alert.severity}
           variant="filled"
-          sx={{ width: "100%" }}
         >
           {alert.message}
         </Alert>
