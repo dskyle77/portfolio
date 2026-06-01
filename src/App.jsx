@@ -12,6 +12,7 @@ import Contact from "./components/contact";
 import Footer from "./components/footer";
 import ScrollToTop from "./components/ScrollToTop";
 
+import Reveal from "./components/Reveal";
 import darkTechTheme from "./theme";
 
 function App() {
@@ -38,10 +39,19 @@ function App() {
 
       <main id="main-content">
         <HeroSection />
-        <About />
-        <Skills />
-        <Projects />
-        <Contact />
+
+        <Reveal variant="bottom" duration={0.5}>
+          <About />
+        </Reveal>
+        <Reveal variant="bottom" duration={0.5}>
+          <Skills />
+        </Reveal>
+        <Reveal variant="bottom" duration={0.5}>
+          <Projects />
+        </Reveal>
+        <Reveal variant="bottom" duration={0.5}>
+          <Contact />
+        </Reveal>
       </main>
 
       <Footer />

@@ -53,7 +53,7 @@ const Footer = () => {
             aria-label="Social media links"
           >
             <IconButton
-              href="https://www.facebook.com/dskyle7/"
+              href="https://www.facebook.com/dskyle77/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Visit David Onyema on Facebook"
@@ -112,7 +112,6 @@ const Footer = () => {
               <WhatsApp />
             </IconButton>
 
-            {/* Itch.io Link */}
             <IconButton
               href="https://dskyle77.itch.io"
               target="_blank"
